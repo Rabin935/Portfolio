@@ -10,9 +10,9 @@
 }
 :root{
     --bg-color: black;
-    --second-bg-color: #161616;
+    --second-bg-color: #0c0c0c;
     --text-color: white;
-    --main-color: #00ffee;
+    --main-color: #1f2423;
     --pic-color: rgb(127, 5, 197);
     --purple: rgb(127, 5, 197);
     
@@ -27,6 +27,11 @@ body{
     background: var(--second-bg-color);
     color: var(--text-color);
 }
+
+.home{
+    background-color: var(--bg-color);
+}
+
 
 .header{
     position: fixed;
@@ -52,8 +57,14 @@ body{
 .logo:hover{
     transform: scale(1.1);
 }
+
+.logo:hover::after{
+    text-shadow: 0 0 40px var(--purple);
+}
+
 .logo span{
     text-shadow: 0 0 30px var(--purple);
+    color: var(--purple);
 }
 
 
@@ -69,7 +80,7 @@ body{
     color: var(--text-color);
     margin-left: 4rem;
     font-weight: 500;
-    transition: 0.8s ease;
+    transition: 0.5s ease;
     border-bottom: 3px solid transparent;
     
 }
@@ -85,14 +96,14 @@ body{
 
 
 #menu-icon{
-    font-size: 9\3.5rem;
+    font-size: 3.5rem;
     color: var(--purple);
     display: none;
 }
 
 section{
     min-height: 100vh;
-    padding: 20rem 12% 20rem;
+    padding: 10rem 12% 10rem;
 }
 
 .home{
@@ -104,7 +115,36 @@ section{
 
 .home-content{
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    text-align: left;
+    justify-content: center;
+    margin-top: 3rem;
 }
+
+span{
+    color: var(--purple);
+}
+
+.logo span{
+    color: var(--purple);
+}
+
+.home-content h3{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: 3.5rem;
+
+}
+
+.home-content h1{
+    font-size: 7rem;
+    font-weight: 700;
+    margin-top: 1.5 rem;
+    line-height: 1;
+}
+
 
 .home-img{
     border-radius: 50%;
@@ -116,7 +156,7 @@ section{
     border-radius: 50%;
     box-shadow: 0 0 25px var(--pic-color);
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.4s ease-in-out;
 }
 
 .home-img img:hover{
@@ -131,6 +171,30 @@ section{
     line-height: 1.8;
     max-width: 1000px;
 }
+
+
+.abtbtn{
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--purple);
+    box-shadow: 0 0 25px var(--purple);
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: black;
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.abtbtn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--purple);
+}
+
+
+
 
 .social-icon a{
     display: inline-flex;
@@ -147,11 +211,13 @@ section{
     transition: 0.3 ease-in-out;
 }
 
+
 .social-icon a:hover{
     color: var(--text-color);
     transform: scale(1.3) translateY(-5px);
     box-shadow: 0 0 25px var(--purple);
     background-color: var(--purple);
+    transition: 0.2s ease-in-out;
 }
 
 .btn{
@@ -167,4 +233,530 @@ section{
     font-weight: 600;
     transition: 0.3s ease-in-out;
     cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--purple);
+    color: white;
+}
+
+.btn-group{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+
+.btn-group a:nth-of-type(2){
+    background-color: black;
+    color: var(--purple);
+    border: 2px solid var(--purple);
+    box-shadow: 0 0 25px transparent;
+}
+
+.btn-group a:nth-of-type(2):hover{
+    box-shadow: 0 0 25px var(--purple);
+    background-color: var(--purple);
+    color: white;
+}
+
+
+.text-animation{
+    font-size: 30px;
+    font-weight: 600;
+    min-width: 280px;
+
+}
+
+.text-animation span{
+    position: relative;
+}
+
+.text-animation span::before{
+    content: "";
+    color: var(--purple);
+    animation: words 20s infinite;
+}
+
+.text-animation span::after{
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+
+}
+
+
+@keyframes cursor {
+    to{
+        border-left: 2px solid var(--purple );
+
+    }
+}
+
+@keyframes words{
+    0%,
+    20%{
+        content: "Web developer";
+    }
+    21%,
+    40%{
+        content: "Frontend Designer";
+    }
+    41%,
+    60%{
+        content: "Python Programmer";
+    }
+    61%,
+    80%{
+        content: "Ui/UX Designer";
+    }
+    81%,
+    100%{
+        content: "Software Developer";
+    }
+}
+
+
+@keyframes typing{
+    10%,
+    15%,
+    30%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95%{
+        width: 0;
+    }
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85%{
+        width: calc(100% + 8px);
+    }
+}
+
+
+
+.heading{
+    font-size: 5rem;
+    text-align: left;
+    margin: 4rem 0;
+    color: var(--purple);
+    
+}
+
+.t-skill{
+    font-size: 25px;
+    
+}
+
+.barhtml{
+    width: 400px;
+    height: 20px;
+    color: var(--purple);
+}
+
+.barhtml{
+    margin-top: 10px;
+    position: relative;
+    border-radius: 10px;
+    width: 700px;
+    height: 5px;
+    background-color: #eaeaea;
+    
+    
+}
+
+.barhtml span{
+    height: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    border-radius: 10px;
+    width: 90%;
+    transition: 0.3s ease-in-out;
+}
+
+.barhtml span:hover{
+    content: '90%';
+    box-shadow: 0 0 30px var(--purple);
+    transform: scale(1) ;
+    transition: 0.5s ease-in-outout;
+}
+
+
+
+.htmllogo{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid var(--text-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--purple);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3 ease-in-out;
+}
+
+
+.htmllogo:hover{
+    color: var(--text-color);
+    border-color: var(--purple);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--purple);
+    background-color: var(--purple);
+    transition: 0.2s ease-in-out;
+}
+
+
+
+
+.barcss{
+    width: 400px;
+    height: 20px;
+    color: var(--purple);
+}
+
+.barcss{
+    margin-top: 10px;
+    position: relative;
+    border-radius: 5px;
+    width: 700px;
+    height: 5px;
+    background-color: #eaeaea;
+    
+    
+}
+
+.barcss span{
+    height: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    border-radius: 5px;
+    width: 75%;
+
+}
+
+.jsbar{
+    width: 400px;
+    height: 20px;
+    color: var(--purple);
+}
+
+.jsbar{
+    margin-top: 10px;
+    position: relative;
+    border-radius: 5px;
+    width: 700px;
+    height: 5px;
+    background-color: #eaeaea;
+    
+    
+}
+
+.jsbar span{
+    height: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    border-radius: 5px;
+    width: 80%;
+
+}
+
+.reactbar{
+    width: 400px;
+    height: 20px;
+    color: var(--purple);
+}
+
+.reactbar{
+    margin-top: 10px;
+    position: relative;
+    border-radius: 5px;
+    width: 700px;
+    height: 5px;
+    background-color: #eaeaea;
+    
+    
+}
+
+.reactbar span{
+    height: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    border-radius: 5px;
+    width: 82%;
+
+}
+
+.pythonbar{
+    width: 400px;
+    height: 20px;
+    color: var(--purple);
+}
+
+.pythonbar{
+    margin-top: 10px;
+    position: relative;
+    border-radius: 5px;
+    width: 700px;
+    height: 5px;
+    background-color: #eaeaea;
+    
+    
+}
+
+.pythonbar span{
+    height: 100%;
+    background-color: var(--purple);
+    position: absolute;
+    border-radius: 5px;
+    width: 75%;
+
+}
+
+.project{
+    background-color: var(--bg-color);
+}
+
+.project .heading{
+    font-weight: bold;
+}
+
+
+.githublogo{
+    display: flex;
+
+}
+
+
+.gharbeti a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    background: transparent;
+    border: 2px solid var(--purple);
+    font-size: 10rem;
+    border-radius: 50%;
+    color: var(--purple);
+    margin: 3rem 5rem 3rem 0;
+    transition: 0.3 ease-in-out;
+}
+
+.gharbeti a:hover{
+    color: var(--text-color);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--purple);
+    background-color: var(--purple);
+    transition: 0.2s ease-in-out;
+}
+.wod a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    background: transparent;
+    border: 2px solid var(--purple);
+    font-size: 10rem;
+    border-radius: 50%;
+    color: var(--purple);
+    margin: 3rem 5rem 3rem 0;
+    transition: 0.3 ease-in-out;
+}
+
+.wod a:hover{
+    color: var(--text-color);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--purple);
+    background-color: var(--purple);
+    transition: 0.2s ease-in-out;
+}
+
+
+.linktree a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    background: transparent;
+    border: 2px solid var(--purple);
+    font-size: 10rem;
+    border-radius: 50%;
+    color: var(--purple);
+    margin: 3rem 5rem 3rem 0;
+    transition: 0.3 ease-in-out;
+}
+
+
+
+
+.linktree a:hover{
+    color: var(--text-color);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--purple);
+    background-color: var(--purple);
+    transition: 0.2s ease-in-out;
+}
+
+
+
+.recipefinder a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    background: transparent;
+    border: 2px solid var(--purple);
+    font-size: 10rem;
+    border-radius: 50%;
+    color: var(--purple);
+    margin: 3rem 5rem 3rem 0;
+    transition: 0.3 ease-in-out;
+}
+
+.recipefinder a:hover{
+    color: var(--text-color);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--purple);
+    background-color: var(--purple);
+    transition: 0.2s ease-in-out;
+}
+
+
+.contact{
+    background-color: va(--second-bg-color);
+}
+
+.contact h2{
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.input-group2 .btn{
+    background-color: black;
+    color: var(--purple);
+    border: 2px solid var(--purple);
+    box-shadow: 0 0 25px transparent;
+}
+
+.input-group2 .btn:hover{
+    box-shadow: 0 0 25px var(--purple);
+    background-color: var(--purple);
+    color: white;
+}
+
+.contact form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 5rem auto;
+    text-align: center;
+
+}
+
+.contact form .input-box input{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.contact form .input-box input,
+.contact form textarea{
+    width: 100%;
+    padding: 2.5rem;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    background: var(--second-bg-color);
+    border-radius: 10px;
+    border: 2px solid var(--purple);
+    margin: 1rem 0;
+    resize: none;
+}
+
+.input-group2 input{
+    margin-top: 20px;
+}
+
+footer{
+    background-color: var(--bg-color);
+    display: flex;
+    font-size: 20px;
+    
+}
+
+.foot{
+    
+    
+}
+
+
+.cont{
+    margin-left: 300px;
+}
+
+.call{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid var(--purple);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--purple);
+    margin-top: 20px;
+    margin-left: 400px;
+    transition: 0.3 ease-in-out;
+}
+
+.icon{
+    margin-left: 700px;
+}
+
+
+footer a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid var(--purple);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--purple);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3 ease-in-out;
+}
+
+
+footer a:hover{
+    color: var(--text-color);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--purple);
+    background-color: var(--purple);
+    transition: 0.2s ease-in-out;
 }
